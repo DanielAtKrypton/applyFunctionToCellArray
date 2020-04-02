@@ -32,7 +32,7 @@ data = {
     fullfile('root', 'pathA'), fullfile('root', 'pathB'), fullfile('root', 'pathC');
     'fileA', 'fileB', 'fileC'
 };
-result = applyFunctionToCellArray(@fullfile, data, 2)
+result = applyFunctionToCellArray(@fullfile, data, 1)
 %result =
 %
 %  1×3 cell array
@@ -45,7 +45,7 @@ data = {
     fullfile('root', 'pathA'), fullfile('root', 'pathB'), fullfile('root', 'pathC');
     'fileA', 'fileB', 'fileC'
 };
-result = applyFunctionToCellArray(@fullfile, data, 1)
+result = applyFunctionToCellArray(@fullfile, data, 2)
 %result =
 %
 %  2×1 cell array

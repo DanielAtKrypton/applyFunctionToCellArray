@@ -18,7 +18,7 @@ classdef TestApplyFunctionToCellArray < matlab.unittest.TestCase
                 'fileA', 'fileB', 'fileC'
             };
             expectedResult = {fullfile('root', 'pathA', 'fileA'), fullfile('root', 'pathB', 'fileB'), fullfile('root', 'pathC', 'fileC')};
-            result = applyFunctionToCellArray(@fullfile, data, 2);
+            result = applyFunctionToCellArray(@fullfile, data, 1);
             testCase.verifyEqual(result, expectedResult, 'Results must match');
         end
         function testApplyFunctionRowWise(testCase)
@@ -30,7 +30,7 @@ classdef TestApplyFunctionToCellArray < matlab.unittest.TestCase
                 fullfile('root', 'pathA', 'root', 'pathB', 'root', 'pathC');
                 fullfile('fileA', 'fileB', 'fileC')
             };
-            result = applyFunctionToCellArray(@fullfile, data, 1);
+            result = applyFunctionToCellArray(@fullfile, data, 2);
             testCase.verifyEqual(result, expectedResult, 'Results must match');
         end        
     end
