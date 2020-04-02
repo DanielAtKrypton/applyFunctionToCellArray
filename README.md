@@ -7,7 +7,8 @@
 3. [Syntax](#syntax)
 4. [Examples](#examples)
 5. [Test](#test)
-6. [References](#references)
+6. [Limitations](#limitations)
+7. [References](#references)
 
 ## Acknowledgements
 
