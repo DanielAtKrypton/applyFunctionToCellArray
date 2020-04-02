@@ -59,4 +59,8 @@ result = applyFunctionToCellArray(@fullfile, data, 1)
 testsResults = runtests('TestApplyFunctionToCellArray')
 ```
 
+## Limitations
+
+- Maximum input cell array dimension is currently 2.
+
 ## References
