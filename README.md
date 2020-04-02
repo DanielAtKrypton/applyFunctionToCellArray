@@ -16,7 +16,10 @@ Based on the work of [Andrei Bobrov](https://www.mathworks.com/matlabcentral/pro
 
 ## Description
 
-Applies function to a cell array along the specified dimension.
+Applies function to a cell array along the specified dimension. It comes in two breeds:
+
+- applyCellFunctionToCellArray
+- applyFunctionToCellArray
 
 ## Syntax
 
@@ -25,7 +28,7 @@ Applies function to a cell array along the specified dimension.
 % result = applyCellFunctionToCellArray(functionHandle, data, alongDimension, fcnArg1, fcnArg1, ..., fcnArgN)
 
 
-% result = applyFunctionToCellArray(functionHandle, data, alongDimension, fcnArg1, fcnArg1, ..., fcnArgN)
+% result = applyFunctionToCellArray(functionHandle, data, alongDimension)
 % result = applyFunctionToCellArray(functionHandle, data, alongDimension, fcnArg1, fcnArg1, ..., fcnArgN)
 ```
 
@@ -34,24 +37,20 @@ Applies function to a cell array along the specified dimension.
 ### applyCellFunctionToCellArray
 
 ```matlab
-% apply function column wise
 data = {
     fullfile('root', 'pathA'), fullfile('root', 'pathB'), fullfile('root', 'pathC');
     'fileA', 'fileB', 'fileC'
 };
+% apply function row wise
 result = applyCellFunctionToCellArray(@fullfile, data, 1)
+
 %result =
 %
 %  1×3 cell array
 %
 %    {'root\pathA\fileA'}    {'root\pathB\fileB'}    {'root\pathC\fileC'}
 
-
-% apply function row wise
-data = {
-    fullfile('root', 'pathA'), fullfile('root', 'pathB'), fullfile('root', 'pathC');
-    'fileA', 'fileB', 'fileC'
-};
+% apply function column wise
 result = applyCellFunctionToCellArray(@fullfile, data, 2)
 %result =
 %
@@ -64,33 +63,37 @@ result = applyCellFunctionToCellArray(@fullfile, data, 2)
 ### applyFunctionToCellArray
 
 ```matlab
->> data = {
+data = {
 [1 2] [2 3] [3 4];
 [4 5] [5 6] [6 7]
 };
->> res 1 = applyFunctionToCellArray(@mean, data, 2, 2)
-res1 =
 
-  2×1 cell array
+% apply function column wise
+res 1 = applyFunctionToCellArray(@mean, data, 2, 2)
+%res1 =
+%
+%  2×1 cell array
+%
+%    {[2.5000]}
+%    {[5.5000]}
 
-    {[2.5000]}
-    {[5.5000]}
->> res2 =  applyFunctionToCellArray(@mean, data, 1, 1);
->> res2{:}
+% apply function row wise
+res2 =  applyFunctionToCellArray(@mean, data, 1, 1);
+res2{:}
 
-ans =
-
-    2.5000    3.5000
-
-
-ans =
-
-    3.5000    4.5000
-
-
-ans =
-
-    4.5000    5.5000
+%ans =
+%
+%    2.5000    3.5000
+%
+%
+%ans =
+%
+%    3.5000    4.5000
+%
+%
+%ans =
+%
+%    4.5000    5.5000
 ```
 
 ## Test
