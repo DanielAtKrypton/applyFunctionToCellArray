@@ -21,10 +21,17 @@ Applies function to a cell array along the specified dimension.
 ## Syntax
 
 ```matlab
-% result = applyFunctionToCellArray(functionHandle, data, alongDimension)
+% result = applyCellFunctionToCellArray(functionHandle, data, alongDimension)
+% result = applyCellFunctionToCellArray(functionHandle, data, alongDimension, fcnArg1, fcnArg1, ..., fcnArgN)
+
+
+% result = applyFunctionToCellArray(functionHandle, data, alongDimension, fcnArg1, fcnArg1, ..., fcnArgN)
+% result = applyFunctionToCellArray(functionHandle, data, alongDimension, fcnArg1, fcnArg1, ..., fcnArgN)
 ```
 
 ## Examples
+
+### applyCellFunctionToCellArray
 
 ```matlab
 % apply function column wise
@@ -32,7 +39,7 @@ data = {
     fullfile('root', 'pathA'), fullfile('root', 'pathB'), fullfile('root', 'pathC');
     'fileA', 'fileB', 'fileC'
 };
-result = applyFunctionToCellArray(@fullfile, data, 1)
+result = applyCellFunctionToCellArray(@fullfile, data, 1)
 %result =
 %
 %  1×3 cell array
@@ -45,13 +52,45 @@ data = {
     fullfile('root', 'pathA'), fullfile('root', 'pathB'), fullfile('root', 'pathC');
     'fileA', 'fileB', 'fileC'
 };
-result = applyFunctionToCellArray(@fullfile, data, 2)
+result = applyCellFunctionToCellArray(@fullfile, data, 2)
 %result =
 %
 %  2×1 cell array
 %
 %    {'root\pathA\root\pathB\root\pathC'}
 %    {'fileA\fileB\fileC'               }
+```
+
+### applyFunctionToCellArray
+
+```matlab
+>> data = {
+[1 2] [2 3] [3 4];
+[4 5] [5 6] [6 7]
+};
+>> res 1 = applyFunctionToCellArray(@mean, data, 2, 2)
+res1 =
+
+  2×1 cell array
+
+    {[2.5000]}
+    {[5.5000]}
+>> res2 =  applyFunctionToCellArray(@mean, data, 1, 1);
+>> res2{:}
+
+ans =
+
+    2.5000    3.5000
+
+
+ans =
+
+    3.5000    4.5000
+
+
+ans =
+
+    4.5000    5.5000
 ```
 
 ## Test
