@@ -20,11 +20,25 @@ Applies function to a cell array along the specified dimension.
 ## Syntax
 
 ```matlab
+% result = applyFunctionToCellArray(functionHandle, data, alongDimension)
 ```
 
 ## Examples
 
 ```matlab
+% apply function column wise
+data = {
+    fullfile('root', 'pathA'), fullfile('root', 'pathB'), fullfile('root', 'pathC');
+    'fileA', 'fileB', 'fileC'
+};
+result = applyFunctionToCellArray(@fullfile, data, 2);
+
+% apply function row wise
+data = {
+    fullfile('root', 'pathA'), fullfile('root', 'pathB'), fullfile('root', 'pathC');
+    'fileA', 'fileB', 'fileC'
+};
+result = applyFunctionToCellArray(@fullfile, data, 1);
 ```
 
 ## Test
