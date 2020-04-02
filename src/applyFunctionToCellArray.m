@@ -5,5 +5,5 @@ switch alongDimension
 case 1
     result = arrayfun(@(i1) functionHandle(data{i1,:}), (1:dataSize(alongDimension))', 'UniformOutput', false);
 case 2
-    result = arrayfun(@(i1) functionHandle(data{:,i1}), (1:dataSize(alongDimension))', 'UniformOutput', false)';
+    result = arrayfun(@(i1) functionHandle(data{:,i1}), (1:dataSize(alongDimension)), 'UniformOutput', false);
 end
