@@ -25,11 +25,11 @@ Applies function to a cell array along the specified dimension. It comes in two 
 
 ```matlab
 % result = applyCellFunctionToCellArray(functionHandle, data, alongDimension)
-% result = applyCellFunctionToCellArray(functionHandle, data, alongDimension, fcnArg1, fcnArg1, ..., fcnArgN)
+% result = applyCellFunctionToCellArray(functionHandle, data, alongDimension, fcnArg1, fcnArg2, ..., fcnArgN)
 
 
 % result = applyFunctionToCellArray(functionHandle, data, alongDimension)
-% result = applyFunctionToCellArray(functionHandle, data, alongDimension, fcnArg1, fcnArg1, ..., fcnArgN)
+% result = applyFunctionToCellArray(functionHandle, data, alongDimension, fcnArg1, fcnArg2, ..., fcnArgN)
 ```
 
 ## Examples
